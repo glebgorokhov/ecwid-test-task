@@ -15,7 +15,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write . --ignore-path .gitignore"
+    "format": "prettier --write . --ignore-path .gitignore",
+    "prepare": "husky"
   },
   "dependencies": {
     "@iconify/json": "^2.2.355",
@@ -28,6 +29,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.1",
     "@tailwindcss/vite": "^4.1.11",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.15.32",
@@ -39,6 +41,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-vue": "~10.2.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "npm-run-all2": "^8.0.4",
     "prettier": "3.5.3",
