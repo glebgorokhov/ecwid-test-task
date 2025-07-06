@@ -1,4 +1,5 @@
 import "./style.css";
+import "@fontsource-variable/figtree";
 
 import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
 import { createPinia } from "pinia";

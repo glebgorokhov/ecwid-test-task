@@ -19,6 +19,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@fontsource-variable/figtree": "^5.2.8",
     "@iconify/json": "^2.2.355",
     "@iconify/vue": "^5.0.0",
     "@tanstack/vue-query": "^5.81.5",

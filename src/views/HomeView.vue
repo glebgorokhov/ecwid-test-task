@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppContainer from "@/components/app/AppContainer.vue";
+</script>
 
 <template>
-  <main>Home!!!</main>
+  <main class="py-10">
+    <AppContainer>Home!!!</AppContainer>
+  </main>
 </template>
