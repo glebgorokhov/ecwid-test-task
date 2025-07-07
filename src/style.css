@@ -11,3 +11,7 @@
 main {
   @apply flex-grow;
 }
+
+html {
+  @apply overflow-y-scroll;
+}
