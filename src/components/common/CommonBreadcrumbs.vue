@@ -16,7 +16,17 @@ type CommonBreadcrumbsProps = {
 const props = defineProps<CommonBreadcrumbsProps>();
 
 const isLoading = computed(() => props.loading);
-const computedItems = computed(() => (props.loading ? Array(2).fill({}) : props.items));
+const computedItems = computed(() =>
+  props.loading
+    ? Array(2).fill({})
+    : [
+        {
+          label: "Home",
+          href: "/",
+        },
+        ...props.items,
+      ],
+);
 
 provide("loading", isLoading);
 </script>
