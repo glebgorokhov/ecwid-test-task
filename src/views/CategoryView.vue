@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
+import { storeToRefs } from "pinia";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
@@ -11,7 +12,9 @@ import { useCategoriesStore } from "@/stores/categories";
 
 const route = useRoute();
 
-const { getCategoryBySlug, getCategoryParents } = useCategoriesStore();
+const categoriesStore = useCategoriesStore();
+const { getCategoryBySlug, getCategoryParents } = categoriesStore;
+const { categoriesLoading } = storeToRefs(categoriesStore);
 
 const category = computed(() => getCategoryBySlug(route.params.slug as string));
 
@@ -43,15 +46,15 @@ const { data: products } = useQuery({
 <template>
   <main class="pt-7 pb-12">
     <AppContainer>
-      <CommonBreadcrumbs :items="breadcrumbs" class="mb-4" />
+      <CommonBreadcrumbs :loading="categoriesLoading" :items="breadcrumbs" class="mb-4" />
       <h1 class="text-5xl font-medium uppercase tracking-wider text-slate-950">
         {{ category?.name }}
       </h1>
-      <div v-if="products" class="mt-9">
+      <div class="mt-9">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <ProductCard
-            v-for="product in products.data.items"
-            :key="product.id"
+            v-for="(product, productIndex) in products?.data.items ?? Array(8)"
+            :key="productIndex"
             :product="product"
           />
         </div>
