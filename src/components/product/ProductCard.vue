@@ -5,6 +5,7 @@ import { RouterLink } from "vue-router";
 import { type EcwidProduct } from "@/api/product.types";
 import { useCartStore } from "@/stores/cart";
 import { formatPrice } from "@/utils/price";
+import { generateProductUrl } from "@/utils/product";
 
 import CommonButton from "../common/CommonButton.vue";
 import CommonSkeleton from "../common/CommonSkeleton.vue";
@@ -43,7 +44,7 @@ const handleAddToCart = () => {
     <!-- Link -->
     <RouterLink
       v-if="product"
-      :to="`/p/${product.id}`"
+      :to="generateProductUrl(product)"
       class="absolute inset-0"
       aria-label="Open Product Page"
     ></RouterLink>

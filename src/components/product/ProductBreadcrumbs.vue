@@ -4,6 +4,7 @@ import { computed, provide } from "vue";
 import { type EcwidProduct } from "@/api/product.types";
 import CommonBreadcrumbs from "@/components/common/CommonBreadcrumbs.vue";
 import { useCategoriesStore } from "@/stores/categories";
+import { generateProductUrl } from "@/utils/product";
 
 interface Props {
   product?: EcwidProduct;
@@ -37,7 +38,7 @@ const breadcrumbs = computed(() => {
     },
     {
       label: product.name,
-      href: `/p/${product.id}`,
+      href: generateProductUrl(product),
     },
   ];
 });

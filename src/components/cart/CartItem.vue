@@ -4,6 +4,7 @@ import { computed } from "vue";
 import CommonButton from "@/components/common/CommonButton.vue";
 import { type CartItem, useCartStore } from "@/stores/cart";
 import { formatPrice } from "@/utils/price";
+import { generateProductUrl } from "@/utils/product";
 
 interface Props {
   item: CartItem;
@@ -28,7 +29,7 @@ const handleRemove = () => {
   <div class="flex items-start gap-6">
     <!-- Product Image -->
     <RouterLink
-      :to="`/p/${item.product.id}`"
+      :to="generateProductUrl(item.product)"
       class="w-20 rounded-xl overflow-hidden shrink-0 block group"
     >
       <div class="relative pb-[160%]">
@@ -44,7 +45,10 @@ const handleRemove = () => {
     <!-- Product Info -->
     <div class="flex-1">
       <h3 class="text-lg uppercase tracking-wide font-semibold text-slate-950">
-        <RouterLink :to="`/p/${item.product.id}`" class="hover:text-slate-700 transition-colors">
+        <RouterLink
+          :to="generateProductUrl(item.product)"
+          class="hover:text-slate-700 transition-colors"
+        >
           {{ item.product.name }}
         </RouterLink>
       </h3>
