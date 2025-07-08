@@ -24,10 +24,10 @@ const hasSubcategories = computed(() =>
 </script>
 
 <template>
-  <div class="bg-slate-950 text-slate-400 rounded-2xl overflow-hidden p-5">
+  <div class="bg-slate-950 text-slate-400 rounded-2xl overflow-hidden p-4 lg:p-5">
     <!-- Category Name -->
     <h3
-      class="text-lg uppercase font-semibold tracking-wide text-slate-50 hover:text-yellow-400 transition-colors"
+      class="text-base lg:text-lg uppercase font-semibold tracking-wide text-slate-50 hover:text-yellow-400 transition-colors"
     >
       <CommonSkeletonText background-class="bg-white/20" :lines="1">
         <RouterLink v-if="category && categorySlug" :to="`/c/${categorySlug}`">

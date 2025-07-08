@@ -32,14 +32,14 @@ useHead({
 </script>
 
 <template>
-  <main class="pt-16 pb-24">
-    <AppContainer class="space-y-16">
+  <main class="pt-8 lg:pt-16 pb-12 lg:pb-24">
+    <AppContainer class="space-y-10 lg:space-y-16">
       <!-- Categories Section -->
       <HomeSection
         title="Shop by Category"
         description="Explore our curated collection of products"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           <CategoryCard
             v-for="(category, categoryIndex) in !categoriesLoading
               ? hierarchicalCategories
@@ -52,7 +52,7 @@ useHead({
 
       <!-- Featured Products Section -->
       <HomeSection title="Featured Products" description="Discover our most popular items">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
           <ProductCard
             v-for="(product, productIndex) in productsLoading
               ? Array(8).fill(null)

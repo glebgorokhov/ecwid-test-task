@@ -85,7 +85,7 @@ function getButtonClasses(isActive: boolean, isDisabled: boolean) {
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex flex-col lg:flex-row items-center justify-between gap-3">
     <!-- Total items -->
     <div class="text-sm text-slate-600">
       {{ totalItems || 0 }} item{{ totalItems === 1 ? "" : "s" }} found on

@@ -24,21 +24,23 @@ const socials = [
 </script>
 
 <template>
-  <footer class="bg-slate-50 text-slate-500">
+  <footer class="bg-slate-50 text-slate-500 py-6 lg:py-10">
     <AppContainer>
-      <div class="flex items-start justify-between py-10">
+      <div
+        class="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between gap-4 lg:gap-10"
+      >
         <!-- Logo -->
         <RouterLink to="/" class="flex h-6 transition-colors hover:text-slate-950">
           <EcwidLogo class="h-full" />
         </RouterLink>
 
         <!-- Categories -->
-        <div class="flex items-start gap-10">
+        <div class="flex flex-col lg:flex-row gap-4 lg:gap-10 items-center lg:items-start">
           <!-- Copyright -->
           <p class="text-sm">&copy; {{ new Date().getFullYear() }} Ecwid. All rights reserved.</p>
 
           <!-- Socials -->
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-3">
             <a
               v-for="social in socials"
               :key="social.icon"

@@ -32,7 +32,7 @@ provide("loading", isLoading);
 </script>
 
 <template>
-  <div class="flex items-center gap-2">
+  <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
     <template v-for="(item, index) in computedItems" :key="item.label">
       <component
         :is="index === computedItems.length - 1 ? 'span' : RouterLink"

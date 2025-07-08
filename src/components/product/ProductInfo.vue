@@ -27,16 +27,18 @@ const handleAddToCart = () => {
 </script>
 
 <template>
-  <div class="space-y-4">
+  <div class="space-y-3 lg:space-y-4">
     <!-- Product Name -->
-    <h1 class="text-4xl leading-[1.3] font-semibold uppercase tracking-wide text-slate-950">
+    <h1
+      class="text-2xl lg:text-4xl leading-[1.3] font-semibold uppercase tracking-wide text-slate-950"
+    >
       <CommonSkeletonText :lines="2" rounded-class="rounded-md">
         {{ product?.name }}
       </CommonSkeletonText>
     </h1>
 
     <!-- Price -->
-    <p class="text-2xl font-semibold text-slate-950">
+    <p class="text-xl lg:text-2xl font-semibold text-slate-950">
       <CommonSkeletonText :random="false" :lines="1" class="w-24" rounded-class="rounded-md">
         {{ formatPrice(product?.price ?? 0) }}
       </CommonSkeletonText>
@@ -45,7 +47,7 @@ const handleAddToCart = () => {
     <!-- Description -->
     <div
       v-if="isLoading || product?.description"
-      class="text-base text-slate-950 leading-relaxed space-y-3"
+      class="text-sm lg:text-base text-slate-950 leading-relaxed space-y-2 lg:space-y-3"
     >
       <CommonSkeletonText :lines="5">
         <div v-html="product?.description" class="space-y-3"></div>
@@ -56,7 +58,7 @@ const handleAddToCart = () => {
     </div>
 
     <!-- Add to Cart Button -->
-    <div class="pt-3">
+    <div class="pt-2 lg:pt-3">
       <CommonSkeleton class="w-full" rounded-class="rounded-2xl h-11">
         <CommonButton
           v-if="!cartStore.isInCart(product?.id ?? 0)"

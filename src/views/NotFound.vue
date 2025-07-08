@@ -10,18 +10,21 @@ useHead({
 </script>
 
 <template>
-  <main class="pt-16 pb-24 flex flex-col justify-center">
+  <main class="pt-8 lg:pt-16 pb-16 lg:pb-24 flex flex-col justify-center">
     <AppContainer class="my-auto">
       <div class="text-center">
-        <!-- Success Icon -->
-        <div class="text-8xl mb-6">🔍</div>
+        <!-- Not Found Icon -->
+        <div class="text-5xl lg:text-8xl mb-5 lg:mb-6">🔍</div>
 
-        <!-- Thank You Message -->
-        <h1 class="text-5xl font-semibold uppercase tracking-wide text-slate-950 mb-6">
+        <!-- Not Found Message -->
+        <h1
+          class="text-2xl lg:text-5xl font-semibold uppercase tracking-wide text-slate-950 mb-3 lg:mb-6"
+        >
           Page Not Found
         </h1>
 
-        <p class="text-lg text-slate-600 mb-7 leading-relaxed">
+        <!-- Not Found Description -->
+        <p class="text-base lg:text-lg text-slate-600 mb-5 lg:mb-7 leading-relaxed">
           Sorry, the page you're looking for doesn't exist or couldn't be loaded.
         </p>
 

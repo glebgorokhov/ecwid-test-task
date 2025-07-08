@@ -26,11 +26,11 @@ const handleRemove = () => {
 </script>
 
 <template>
-  <div class="flex items-start gap-6">
+  <div class="flex items-start gap-4 lg:gap-6">
     <!-- Product Image -->
     <RouterLink
       :to="generateProductUrl(item.product)"
-      class="w-20 rounded-xl overflow-hidden shrink-0 block group"
+      class="w-16 lg:w-20 rounded-xl overflow-hidden shrink-0 block group"
     >
       <div class="relative pb-[160%]">
         <img
@@ -44,7 +44,17 @@ const handleRemove = () => {
 
     <!-- Product Info -->
     <div class="flex-1">
-      <h3 class="text-lg uppercase tracking-wide font-semibold text-slate-950">
+      <!-- Item Total (mobile) -->
+      <div class="text-left min-w-0 lg:hidden">
+        <p class="text-sm font-semibold tracking-wide text-slate-950 mb-1">
+          {{ formatPrice(itemTotal) }}
+        </p>
+      </div>
+
+      <!-- Product Name -->
+      <h3
+        class="text-base lg:text-lg uppercase tracking-wide font-semibold text-slate-950 leading-[1.3]"
+      >
         <RouterLink
           :to="generateProductUrl(item.product)"
           class="hover:text-slate-700 transition-colors"
@@ -53,7 +63,9 @@ const handleRemove = () => {
         </RouterLink>
       </h3>
 
-      <ul class="flex items-center gap-x-4 gap-y-1 flex-wrap text-sm text-slate-600 mt-1.5">
+      <ul
+        class="flex items-center gap-x-3 lg:gap-x-4 gap-y-1 flex-wrap text-xs lg:text-sm text-slate-600 mt-2 lg:mt-1.5"
+      >
         <li>
           SKU: <span class="text-slate-950">{{ item.product.sku }}</span>
         </li>
@@ -106,7 +118,7 @@ const handleRemove = () => {
     </div>
 
     <!-- Item Total -->
-    <div class="text-right min-w-0">
+    <div class="hidden lg:block text-right min-w-0">
       <p class="text-lg font-semibold tracking-wide text-slate-950">
         {{ formatPrice(itemTotal) }}
       </p>

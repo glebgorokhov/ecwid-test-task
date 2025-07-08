@@ -51,13 +51,13 @@ useHead({
 </script>
 
 <template>
-  <main class="pt-7 pb-12">
+  <main class="pt-5 lg:pt-7 pb-16 lg:pb-24">
     <AppContainer>
       <!-- Breadcrumbs -->
-      <ProductBreadcrumbs :product="product" class="mb-6" />
+      <ProductBreadcrumbs :product="product" class="mb-4 lg:mb-6" />
 
       <!-- Product Content -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
         <!-- Product Gallery -->
         <div>
           <ProductGallery :product="product" />
