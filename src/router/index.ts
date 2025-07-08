@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import CartView from "@/views/CartView.vue";
 import CategoryView from "@/views/CategoryView.vue";
+import NotFound from "@/views/NotFound.vue";
 import ProductView from "@/views/ProductView.vue";
 import ThankYouView from "@/views/ThankYouView.vue";
 
@@ -34,6 +35,11 @@ const router = createRouter({
       path: "/thank-you",
       name: "thank-you",
       component: ThankYouView,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: NotFound,
     },
   ],
 });

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, provide } from "vue";
-import { useRoute } from "vue-router";
+import { computed, provide, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import AppContainer from "@/components/app/AppContainer.vue";
 import ProductBreadcrumbs from "@/components/product/ProductBreadcrumbs.vue";
@@ -10,13 +10,32 @@ import { useProductStore } from "@/stores/product";
 import { extractProductIdFromUrl } from "@/utils/product";
 
 const route = useRoute();
+const router = useRouter();
 const productStore = useProductStore();
 
 const productId = computed(() => {
   return extractProductIdFromUrl(route.fullPath) || 0;
 });
 
-const { data: product, isLoading: productLoading } = productStore.getProductById(productId.value);
+const {
+  data: product,
+  isLoading: productLoading,
+  error: productError,
+} = productStore.getProductById(productId.value);
+
+// Watch for errors and redirect to NotFound
+watch(productError, (error) => {
+  if (error && !productLoading.value) {
+    router.push({ name: "not-found" });
+  }
+});
+
+// Watch for product data - if no product found after loading, redirect to NotFound
+watch([product, productLoading], ([newProduct, loading]) => {
+  if (!loading && !newProduct && productId.value > 0) {
+    router.push({ name: "not-found" });
+  }
+});
 
 provide("loading", productLoading);
 </script>
