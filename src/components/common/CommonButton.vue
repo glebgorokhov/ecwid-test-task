@@ -60,7 +60,7 @@ const sizeClasses = computed(() => sizes[props.size]);
       bgColorClass,
       textColorClass,
     ]"
-    class="flex justify-center transition-colors cursor-pointer border-none transform-gpu"
+    class="flex justify-center items-center transition-colors cursor-pointer border-none transform-gpu"
   >
     <div
       :class="[
