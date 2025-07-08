@@ -82,10 +82,11 @@ const handleRemove = () => {
             post-icon="mdi:minus"
             square
             :size="10"
-            bg-color-class="bg-slate-100"
+            bg-color-class="bg-slate-100 hover:bg-slate-200"
             text-color-class="text-slate-700"
             @click="handleQuantityChange(item.quantity - 1)"
             :disabled="item.quantity <= 1"
+            type="button"
           />
 
           <span class="w-10 text-center font-semibold text-slate-950">
@@ -101,6 +102,7 @@ const handleRemove = () => {
             text-color-class="text-slate-700"
             @click="handleQuantityChange(item.quantity + 1)"
             :disabled="!item.product.inStock"
+            type="button"
           />
         </div>
 
