@@ -12,6 +12,7 @@ export interface EcwidProduct {
   inStock: boolean;
   quantity: number;
   weight?: number;
+  defaultCategoryId?: number;
   dimensions?: {
     length: number;
     width: number;
@@ -37,16 +38,20 @@ export interface EcwidProduct {
   media?: {
     images?: Array<{
       id: string;
-      url: string;
-      width: number;
-      height: number;
-      alt?: string;
+      image160pxUrl: string;
+      image400pxUrl: string;
+      image800pxUrl: string;
+      image1500pxUrl: string;
+      isMain: boolean;
     }>;
   };
   createTimestamp: number;
   updateTimestamp: number;
   enabled: boolean;
   url: string;
+  tax: {
+    defaultLocationIncludedTaxRate: number;
+  };
 }
 
 export enum EcwidProductSearchMethod {

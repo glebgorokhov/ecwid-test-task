@@ -7,6 +7,7 @@ interface SkeletonTextProps {
   roundedClass?: string;
   lines?: number | [number, number];
   random?: boolean;
+  backgroundClass?: string;
 }
 
 const props = withDefaults(defineProps<SkeletonTextProps>(), {
@@ -48,6 +49,7 @@ const loading = inject<ComputedRef<boolean>>("loading");
       <CommonSkeleton
         :rounded-class="roundedClass"
         class="absolute left-0 right-0 top-[20%] bottom-[20%]"
+        :background-class="backgroundClass"
       />
     </div>
   </div>

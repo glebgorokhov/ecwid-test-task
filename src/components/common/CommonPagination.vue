@@ -88,9 +88,8 @@ function getButtonClasses(isActive: boolean, isDisabled: boolean) {
   <div class="flex items-center justify-between">
     <!-- Total items -->
     <div class="text-sm text-slate-600">
-      {{ totalItems }} item{{ totalItems === 1 ? "" : "s" }} found on {{ totalPages }} page{{
-        totalPages === 1 ? "" : "s"
-      }}
+      {{ totalItems || 0 }} item{{ totalItems === 1 ? "" : "s" }} found on
+      {{ totalPages || 0 }} page{{ totalPages === 1 ? "" : "s" }}
     </div>
 
     <!-- Buttons -->
@@ -103,8 +102,8 @@ function getButtonClasses(isActive: boolean, isDisabled: boolean) {
         :disabled="loading"
         :size="10"
         type="button"
-        :bg-color-class="getButtonClasses(false, loading || !hasPrevious).bgColorClass"
-        :text-color-class="getButtonClasses(false, loading || !hasPrevious).textColorClass"
+        :bg-color-class="getButtonClasses(false, !hasPrevious).bgColorClass"
+        :text-color-class="getButtonClasses(false, !hasPrevious).textColorClass"
         :square="true"
         rounded-class="rounded-xl"
         :to="getPageUrl(currentPage - 1)"
@@ -120,12 +119,8 @@ function getButtonClasses(isActive: boolean, isDisabled: boolean) {
           rounded-class="rounded-xl"
           :disabled="loading"
           :size="10"
-          :bg-color-class="
-            getButtonClasses(pageItem.page === currentPage, loading ?? false).bgColorClass
-          "
-          :text-color-class="
-            getButtonClasses(pageItem.page === currentPage, loading ?? false).textColorClass
-          "
+          :bg-color-class="getButtonClasses(pageItem.page === currentPage, false).bgColorClass"
+          :text-color-class="getButtonClasses(pageItem.page === currentPage, false).textColorClass"
         />
       </template>
 
@@ -138,8 +133,8 @@ function getButtonClasses(isActive: boolean, isDisabled: boolean) {
         :disabled="loading"
         pre-icon="mdi:chevron-right"
         :size="10"
-        :bg-color-class="getButtonClasses(false, loading || !hasNext).bgColorClass"
-        :text-color-class="getButtonClasses(false, loading || !hasNext).textColorClass"
+        :bg-color-class="getButtonClasses(false, !hasNext).bgColorClass"
+        :text-color-class="getButtonClasses(false, !hasNext).textColorClass"
       />
     </div>
   </div>

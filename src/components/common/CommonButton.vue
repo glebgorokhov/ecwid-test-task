@@ -41,7 +41,7 @@ const sizes = {
 const props = withDefaults(defineProps<CommonButtonProps>(), {
   roundedClass: "rounded-2xl",
   size: 11,
-  bgColorClass: "bg-yellow-300",
+  bgColorClass: "bg-yellow-300 hover:bg-amber-300",
   textColorClass: "text-slate-950",
   tag: "button",
   disabled: false,
@@ -60,7 +60,7 @@ const sizeClasses = computed(() => sizes[props.size]);
       bgColorClass,
       textColorClass,
     ]"
-    class="flex justify-center border border-transparent transition-colors"
+    class="flex justify-center transition-colors cursor-pointer border-none transform-gpu"
   >
     <div
       :class="[
