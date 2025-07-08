@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { useHead } from "@vueuse/head";
+
 import AppContainer from "@/components/app/AppContainer.vue";
 import CommonButton from "@/components/common/CommonButton.vue";
+
+useHead({
+  title: "Thank You",
+});
 </script>
 
 <template>

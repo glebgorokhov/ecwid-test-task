@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
+import { useHead } from "@vueuse/head";
 import { storeToRefs } from "pinia";
 
 import { ecwidApi } from "@/api";
@@ -23,6 +24,10 @@ const { data: featuredProducts, isLoading: productsLoading } = useQuery({
       limit: 8,
       sortBy: EcwidProductSortBy.DEFINED_BY_STORE_OWNER,
     }),
+});
+
+useHead({
+  title: "Home",
 });
 </script>
 

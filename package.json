@@ -23,6 +23,8 @@
     "@iconify/json": "^2.2.355",
     "@iconify/vue": "^5.0.0",
     "@tanstack/vue-query": "^5.81.5",
+    "@unhead/vue": "^2.0.12",
+    "@vueuse/head": "^2.0.0",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.4.1",
     "redaxios": "^0.5.1",

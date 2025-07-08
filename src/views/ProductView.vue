@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHead } from "@vueuse/head";
 import { computed, provide, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
@@ -38,6 +39,15 @@ watch([product, productLoading], ([newProduct, loading]) => {
 });
 
 provide("loading", productLoading);
+
+useHead({
+  title: computed(() => {
+    if (productLoading.value) {
+      return "Loading...";
+    }
+    return product.value?.name ? `${product.value.name}` : "Product";
+  }),
+});
 </script>
 
 <template>

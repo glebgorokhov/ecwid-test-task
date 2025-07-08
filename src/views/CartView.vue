@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
+import { useHead } from "@vueuse/head";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 
@@ -18,6 +19,10 @@ const handleCheckout = () => {
   cartStore.clearCart();
   router.push("/thank-you");
 };
+
+useHead({
+  title: "Shopping Cart",
+});
 
 const summarySections = computed(() => {
   return [

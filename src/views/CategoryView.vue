@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { useQuery } from "@tanstack/vue-query";
+import { useHead } from "@vueuse/head";
 import { storeToRefs } from "pinia";
 import { computed, provide, ref, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
@@ -91,6 +92,15 @@ const subcategories = computed(() => {
 });
 
 provide("loading", productsLoading);
+
+useHead({
+  title: computed(() => {
+    if (categoriesLoading.value || productsLoading.value) {
+      return "Loading...";
+    }
+    return category.value?.name ? `${category.value.name}` : "Category";
+  }),
+});
 </script>
 
 <template>
