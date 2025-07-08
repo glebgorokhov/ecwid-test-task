@@ -1,39 +1,61 @@
-# ecwid-test-task
+<img src="./public/android-chrome-192x192.png" width="60" />
 
-This template should help get you started developing with Vue 3 in Vite.
+# Ecwid Test Task - Vue.js E-commerce Application
 
-## Recommended IDE Setup
+A modern, full-featured e-commerce application built with Vue.js 3, TypeScript, and Tailwind CSS. This project demonstrates advanced frontend development practices while implementing a complete shopping experience with product browsing, cart management, and checkout flow.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Getting Started
 
-## Type Support for `.vue` Imports in TS
+### Prerequisites
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Node.js** >= 22.17.0
+- **pnpm** >= 10.4.0
 
-## Customize configuration
+### Installation
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. **Clone the repository**
 
-## Project Setup
+   ```bash
+   git clone https://github.com/glebgorokhov/ecwid-test-task.git
+   cd ecwid-test-task
+   ```
 
-```sh
-npm install
-```
+2. **Install dependencies**
 
-### Compile and Hot-Reload for Development
+   ```bash
+   pnpm install
+   ```
 
-```sh
-npm run dev
-```
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory:
 
-### Type-Check, Compile and Minify for Production
+   ```env
+   VITE_API_BASE_URL="https://app.ecwid.com/api/v3"
+   VITE_STORE_ID="108362264"
+   VITE_API_TOKEN="public_RiNvjTVVzKLhFNWyzR5fNY68u1GMHLEs"
+   ```
 
-```sh
-npm run build
-```
+4. **Start development server**
 
-### Lint with [ESLint](https://eslint.org/)
+   ```bash
+   pnpm dev
+   ```
 
-```sh
-npm run lint
-```
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## Available Scripts
+
+| Command           | Description                                |
+| ----------------- | ------------------------------------------ |
+| `pnpm dev`        | Start development server with hot reload   |
+| `pnpm build`      | Build for production with type checking    |
+| `pnpm build-only` | Build for production without type checking |
+| `pnpm preview`    | Preview production build locally           |
+| `pnpm type-check` | Run TypeScript type checking               |
+| `pnpm lint`       | Run ESLint with auto-fix                   |
+| `pnpm format`     | Format code with Prettier                  |
+
+## License
+
+This project is created as a test task for Ecwid and is not intended for commercial use.
